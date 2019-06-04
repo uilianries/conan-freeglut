@@ -20,7 +20,9 @@ fi
 
 ls
 echo ${PWD}
-pip install ${PWD}/conan/setup.py
+pushd conan/
+pip install .
+popd
 pip install conan_package_tools bincrafters_package_tools
 
 conan user
