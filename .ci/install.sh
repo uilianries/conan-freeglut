@@ -12,15 +12,14 @@ if [[ "$(uname -s)" == 'Darwin' ]]; then
         eval "$(pyenv init -)"
     fi
 
-    brew uninstall --force xquartz
-
     pyenv install 3.7.1
     pyenv virtualenv 3.7.1 conan
     pyenv rehash
     pyenv activate conan
 fi
 
-
+brew uninstall --force xquartz
+brew remove xquartz
 
 pushd conan/
 pip install .
