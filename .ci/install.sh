@@ -19,7 +19,9 @@ if [[ "$(uname -s)" == 'Darwin' ]]; then
 fi
 
 brew uninstall --force xquartz
-brew remove xquartz
+brew remove xquartz || true
+brew cask uninstall xquartz || true
+brew remove uninstall xquartz || true
 
 pushd conan/
 pip install .
