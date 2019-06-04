@@ -211,7 +211,7 @@ class BrewTool(BaseTool):
         except ConanException as error:
             if "Error: No available formula with the name" in self._output and \
                'Found a cask named "%s" instead' % package_name in self._output:
-                self._output.info("Installing with Brew cask")
+                raise ConanException("Installing with Brew cask")
                 _run(self._runner, "brew cask install %s" % package_name, output=self._output)
             else:
                 raise error
