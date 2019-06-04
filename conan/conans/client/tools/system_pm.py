@@ -207,6 +207,7 @@ class BrewTool(BaseTool):
     def install(self, package_name):
         try:
             _run(self._runner, "brew install %s" % package_name, output=self._output)
+            self._output.info("Installed %s with success" % package_name)
         except ConanException as error:
             if "Error: No available formula with the name" in self._output and \
                'Found a cask named "%s" instead' % package_name in self._output:
